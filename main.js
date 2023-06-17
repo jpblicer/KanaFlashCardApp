@@ -16,6 +16,11 @@ After 3 rounds it is complete
 Display Answers correct out of total
 */
 
+const mojiElement = document.getElementById("moji")
+const answerAElement = document.getElementById("answerA")
+const answerBElement = document.getElementById("answerB")
+const answerCElement = document.getElementById("answerC")
+const answerDElement = document.getElementById("answerD")
 
 class Kana {
  constructor(moji, sound){
@@ -36,3 +41,5 @@ hiraO = new Kana("お", "o");
 
 console.log(hiraI.test())
 
+mojiElement.textContent="test"
+answerAElement.textContent="anothertest"
