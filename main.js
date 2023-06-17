@@ -17,10 +17,16 @@ Display Answers correct out of total
 */
 
 const mojiElement = document.getElementById("moji")
-const answerAElement = document.getElementById("answerA")
-const answerBElement = document.getElementById("answerB")
-const answerCElement = document.getElementById("answerC")
-const answerDElement = document.getElementById("answerD")
+const answerAElement = document.getElementById("answerALabel")
+const answerBElement = document.getElementById("answerBLabel")
+const answerCElement = document.getElementById("answerCLabel")
+const answerDElement = document.getElementById("answerDLabel")
+
+
+const answerTest = document.getElementById("answerA")
+console.log(answerAElement.value)
+
+
 
 class Kana {
  constructor(moji, sound){
@@ -43,3 +49,6 @@ console.log(hiraI.test())
 
 mojiElement.textContent="test"
 answerAElement.textContent="anothertest"
+answerBElement.textContent="anothertestB"
+answerCElement.textContent="anothertestC"
+answerDElement.textContent="anothertestD"
