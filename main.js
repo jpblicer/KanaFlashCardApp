@@ -24,10 +24,8 @@ const answerDElement = document.getElementById("answerDLabel")
 
 
 const answerTest = document.getElementById("answerA")
-//console.log(answerAElement.value)
 
-
-const hiragana = [
+let hiragana = [
     {
         moji: "あ", 
         sound: "a"
@@ -50,26 +48,27 @@ const hiragana = [
     }
 ]
 
-const test = [
-    "a",
-    "b",
-    "c"
-]
-
 
 function chooseMoji(){
     let chosenMoji =  hiragana[Math.floor(Math.random()*hiragana.length)];
     mojiElement.textContent=`what is the sound for: ` + chosenMoji.moji
     correctAnswer = chosenMoji.sound;
     answerAElement.textContent= correctAnswer;
-    
+    console.log(hiragana.indexOf(chosenMoji))
+    hiragana = hiragana.filter(v=> v !== chosenMoji);
+
+    let wrongAnswerOne = hiragana[Math.floor(Math.random()*hiragana.length)];
+    answerBElement.textContent= wrongAnswerOne.sound;
+    hiragana = hiragana.filter(v=> v !== wrongAnswerOne);
+
+    let wrongAnswerTwo = hiragana[Math.floor(Math.random()*hiragana.length)];
+    answerCElement.textContent= wrongAnswerTwo.sound;
+    hiragana = hiragana.filter(v=> v !== wrongAnswerTwo);
+
+    let wrongAnswerThree = hiragana[Math.floor(Math.random()*hiragana.length)];
+    answerDElement.textContent= wrongAnswerThree.sound;
+    hiragana = hiragana.filter(v=> v !== wrongAnswerThree);
+
 }
 
 chooseMoji()
-
-
-/*
-answerBElement.textContent= `B: ` + hiragana.i
-answerCElement.textContent= `C: ` + hiragana.u
-answerDElement.textContent= `D: ` + hiragana.o
-*/
