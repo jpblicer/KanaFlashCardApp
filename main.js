@@ -28,44 +28,47 @@ const answerTest = document.getElementById("answerA")
 
 
 const hiragana = [
-    {a: "あ"},
-    {i: "い"},
-    {u: "う"},
-    {e: "え"},
-    {o: "お"}
+    {
+        moji: "あ", 
+        sound: "a"
+    },
+    {
+        moji: "い", 
+        sound: "i"
+    },
+    {
+        moji: "う", 
+        sound: "u"
+    },
+    {
+        moji: "え", 
+        sound: "e"
+    },
+    {
+        moji: "お", 
+        sound: "o"
+    }
+]
+
+const test = [
+    "a",
+    "b",
+    "c"
 ]
 
 
 function chooseMoji(){
-    return hiragana[Math.floor(Math.random()*hiragana.length)];
-} 
+    let chosenMoji =  hiragana[Math.floor(Math.random()*hiragana.length)];
+    mojiElement.textContent=`what is the sound for: ` + chosenMoji.moji
+    correctAnswer = chosenMoji.sound;
+    answerAElement.textContent= correctAnswer;
+    
+}
 
+chooseMoji()
 
 
 /*
-class Kana {
- constructor(moji, sound){
-    this.moji = moji;
-    this.sound = sound;
- }
-
-test(){
-    return `${this.moji} and ${this.sound}`
-    }
-};
-
-hiraA = new Kana("あ", "a");
-hiraI = new Kana("い", "i");
-hiraU = new Kana("う", "u");
-hiraE = new Kana("え", "e");
-hiraO = new Kana("お", "o");
-
-console.log(hiraI.test())
-
-
-//here
-mojiElement.textContent=`what is the sound for: ` + hiragana[1].i
-answerAElement.textContent= `A: ` + hiragana.a
 answerBElement.textContent= `B: ` + hiragana.i
 answerCElement.textContent= `C: ` + hiragana.u
 answerDElement.textContent= `D: ` + hiragana.o
