@@ -24,16 +24,31 @@ const answerDElement = document.getElementById("answerDLabel")
 
 
 const answerTest = document.getElementById("answerA")
-console.log(answerAElement.value)
+//console.log(answerAElement.value)
+
+
+const hiragana = [
+    {a: "あ"},
+    {i: "い"},
+    {u: "う"},
+    {e: "え"},
+    {o: "お"}
+]
+
+
+function chooseMoji(){
+    return hiragana[Math.floor(Math.random()*hiragana.length)];
+} 
 
 
 
+/*
 class Kana {
  constructor(moji, sound){
     this.moji = moji;
     this.sound = sound;
  }
-    
+
 test(){
     return `${this.moji} and ${this.sound}`
     }
@@ -47,8 +62,11 @@ hiraO = new Kana("お", "o");
 
 console.log(hiraI.test())
 
-mojiElement.textContent="test"
-answerAElement.textContent="anothertest"
-answerBElement.textContent="anothertestB"
-answerCElement.textContent="anothertestC"
-answerDElement.textContent="anothertestD"
+
+//here
+mojiElement.textContent=`what is the sound for: ` + hiragana[1].i
+answerAElement.textContent= `A: ` + hiragana.a
+answerBElement.textContent= `B: ` + hiragana.i
+answerCElement.textContent= `C: ` + hiragana.u
+answerDElement.textContent= `D: ` + hiragana.o
+*/
