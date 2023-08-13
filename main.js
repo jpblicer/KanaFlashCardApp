@@ -8,16 +8,19 @@ DONE - its sound is listed as a multiple choice question
 DONE 3 other random kana sounds are chosen along side it
     TODO They also cannot be duplicates
 
-User selects one of the 4 sounds
-    if the user selects sound matches the selected question kana
-        user gets a point
-    if the user selects the wrong sound for the selected question kana
-        no point
+DONE User selects one of the 4 sounds
+    DONE if the user selects sound matches the selected question kana
+        DONE user gets a point
+    DONE if the user selects the wrong sound for the selected question kana
+        DONE no point
     
 The question kana is removed from the list 
 the next kana is chosen
 
 After the list is completed the final score is shown
+
+UserScore is not being tracked correctly
+
 
 */
 
@@ -31,7 +34,7 @@ const form = document.getElementById("form")
 const answerTest = document.getElementById("answerA")
 const answers = document.getElementsByName("answers")
 
-
+let userScore = 0;
 
 
 
@@ -78,23 +81,24 @@ function selectAnswers(correctAnswer){
 
     let allAnswers = [correctAnswer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree]
     console.log("all possible answers " + allAnswers)
-    shuffleAnswers(allAnswers)  
+    shuffleAnswers(allAnswers , correctAnswer)  
 
 
 };
 
-function shuffleAnswers(allAnswers){
+function shuffleAnswers(allAnswers, correctAnswer){
     for(let i = allAnswers.length - 1; i>0; i--){
         const x = Math.floor(Math.random()*(i+1));
         [allAnswers[i], allAnswers[x]] = [allAnswers[x], allAnswers[i]];
     }
     let shuffledAnswers = allAnswers
     console.log("the shuffled answers are " + shuffledAnswers)
-    displayAnswers(shuffledAnswers)
+    correctAnswer = correctAnswer
+    displayAnswers(shuffledAnswers, correctAnswer)
 
 }
 
-function displayAnswers(shuffledAnswers){
+function displayAnswers(shuffledAnswers, correctAnswer){
     answerAElement.textContent = shuffledAnswers[0]
     answerAElement.value = shuffledAnswers[0]
     console.log(answerAElement.value)
@@ -108,7 +112,6 @@ function displayAnswers(shuffledAnswers){
     answerDElement.textContent = shuffledAnswers[3]
     answerDElement.value = shuffledAnswers[3]
     
-    let roundAnswer = ""
 
     form.addEventListener("submit", event =>{
         for (let userAnswer of answers){
@@ -130,6 +133,19 @@ function displayAnswers(shuffledAnswers){
                         console.error("No Answer Error") 
                 }
                 console.log(userAnswer.textContent)
+                console.log(correctAnswer)
+                if(correctAnswer === userAnswer.textContent){
+                    console.log("correct again")
+                    userScore++
+                    console.log(userScore)
+                    questionStart()
+                    }
+                else{
+                    console.log("wrong answer")
+                    userScore--
+                    console.log(userScore)
+                    questionStart()
+                }
             }
         }
         event.preventDefault();
@@ -138,62 +154,5 @@ function displayAnswers(shuffledAnswers){
 };
 
 
-
-    
-
-
-/*
-form.addEventListener("submit", event =>{
-    console.log(event.target.value)
-
-    event.preventDefault();
-});
-*/
-
 questionStart()
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function chooseMoji(){
-    let chosenMoji =  hiragana[Math.floor(Math.random()*hiragana.length)];
-    mojiElement.textContent=`what is the sound for: ` + chosenMoji.moji
-    correctAnswer = chosenMoji.sound;
-    answerAElement.textContent= correctAnswer;
-    hiragana = hiragana.filter(v=> v !== chosenMoji);
-
-    let wrongAnswerOne = hiragana[Math.floor(Math.random()*hiragana.length)];
-    answerBElement.textContent= wrongAnswerOne.sound;
-    hiragana = hiragana.filter(v=> v !== wrongAnswerOne);
-
-    let wrongAnswerTwo = hiragana[Math.floor(Math.random()*hiragana.length)];
-    answerCElement.textContent= wrongAnswerTwo.sound;
-    hiragana = hiragana.filter(v=> v !== wrongAnswerTwo);
-
-    let wrongAnswerThree = hiragana[Math.floor(Math.random()*hiragana.length)];
-    answerDElement.textContent= wrongAnswerThree.sound;
-    hiragana = hiragana.filter(v=> v !== wrongAnswerThree);
-
-    form.addEventListener("submit",(event)=>{
-        if (chosenMoji.sound === correctAnswer){
-            console.log("right answer")
-        }else{
-            console.log("wrong answer")
-        }
-        event.preventDefault();
-    });
-}
-
-chooseMoji()
-
-*/
