@@ -1,9 +1,3 @@
-/*
-
-Consider setting the answerX.value under answerX.sound on lines 55-57
-
-*/
-
 const hiragana = [
     {
       moji: "あ",
@@ -31,12 +25,18 @@ const hiragana = [
 const form = document.getElementById("form")
 const questionMoji = document.getElementById("questionMoji");
 const answers = document.getElementsByName("answers");
+const answerAInput = document.getElementById("answerA")
+const answerBInput = document.getElementById("answerB")
+const answerCInput = document.getElementById("answerC")
+const answerDInput = document.getElementById("answerD")
+console.log(answerAInput)
+
 const answerA = document.getElementById("answerALabel");
 const answerB = document.getElementById("answerBLabel");
 const answerC = document.getElementById("answerCLabel");
 const answerD = document.getElementById("answerDLabel");
 let userScore = 0
-
+let userKana = ""
 const possibleAnswers = [];
 
 
@@ -55,17 +55,22 @@ function formQuestion(){
   answerB.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;
   answerC.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;  
   answerD.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;
-    
+
+
   possibleAnswers.push(questionKana.sound, answerB.sound, answerC.sound, answerD.sound)
   shuffleAnswers(possibleAnswers)
   questionMoji.textContent = questionKana.moji
-
+  
+  answerAInput.value = answerA.textContent
+  answerBInput.value = answerB.textContent
+  answerCInput.value = answerC.textContent
+  answerDInput.value = answerD.textContent
 
   form.addEventListener("submit", event => {
-    let userKana = (form.elements["answers"].value);
-    console.log(userKana)
-
-    if (questionKana.sound === "a"){
+   userKana = document.querySelector('input[name="answers"]:checked').value
+   console.log(userKana)
+   
+    if (questionKana.sound === userKana){
       console.log("right answer")
       userScore++
       console.log(userScore)
