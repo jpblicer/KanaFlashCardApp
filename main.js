@@ -40,6 +40,8 @@ let userKana = ""
 const possibleAnswers = [];
 
 
+
+
 function shuffleAnswers(possibleAnswers){
   for(let i = possibleAnswers.length - 1; i>0; i--){
     const j = Math.floor(Math.random() *(i + 1));
@@ -48,6 +50,24 @@ function shuffleAnswers(possibleAnswers){
   let shuffledAnswers = possibleAnswers;
   displayAnswers(shuffledAnswers)
 }
+
+/*
+function reset(){
+  hiragana.splice(questionKana, 1);
+  questionKana = "";
+  possibleAnswers = [];
+  formQuestion()
+}
+
+----------------------
+function nextQuestion(){
+  if(hiragana.length >= -1){
+    hiragana.splice(questionKana, 1);
+    questionKana = "";
+    formQuestion()
+  }
+}
+*/
 
 
 function formQuestion(){
@@ -82,7 +102,10 @@ function formQuestion(){
       hiragana.splice(hiragana.indexOf(questionKana), 1);  
     }
     event.preventDefault()
-  })
+    //reset()
+    //nextQuestion()
+
+})
 
 }
 
