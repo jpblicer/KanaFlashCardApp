@@ -1,3 +1,10 @@
+/*
+
+form event listener is firing multiple times on every push.
+
+
+*/
+
 const hiragana = [
     {
       moji: "あ",
@@ -21,7 +28,7 @@ const hiragana = [
     }
   ];
   
-
+  
 const form = document.getElementById("form")
 const questionMoji = document.getElementById("questionMoji");
 const answers = document.getElementsByName("answers");
@@ -29,7 +36,6 @@ const answerAInput = document.getElementById("answerA")
 const answerBInput = document.getElementById("answerB")
 const answerCInput = document.getElementById("answerC")
 const answerDInput = document.getElementById("answerD")
-console.log(answerAInput)
 
 const answerA = document.getElementById("answerALabel");
 const answerB = document.getElementById("answerBLabel");
@@ -40,6 +46,21 @@ let userKana = ""
 const possibleAnswers = [];
 
 
+function startQuiz(){
+
+
+
+
+  function reset(){
+    questionKana = ""
+    userKana = ""
+    possibleAnswers.length = 0;
+    if(hiragana.length !== 0){
+    startQuiz()
+  }else{
+    console.log("game over")
+  }
+    }
 
 
 function shuffleAnswers(possibleAnswers){
@@ -50,24 +71,6 @@ function shuffleAnswers(possibleAnswers){
   let shuffledAnswers = possibleAnswers;
   displayAnswers(shuffledAnswers)
 }
-
-/*
-function reset(){
-  hiragana.splice(questionKana, 1);
-  questionKana = "";
-  possibleAnswers = [];
-  formQuestion()
-}
-
-----------------------
-function nextQuestion(){
-  if(hiragana.length >= -1){
-    hiragana.splice(questionKana, 1);
-    questionKana = "";
-    formQuestion()
-  }
-}
-*/
 
 
 function formQuestion(){
@@ -85,11 +88,11 @@ function formQuestion(){
   answerBInput.value = answerB.textContent
   answerCInput.value = answerC.textContent
   answerDInput.value = answerD.textContent
-
-  form.addEventListener("submit", event => {
-   userKana = document.querySelector('input[name="answers"]:checked').value
-   console.log(userKana)
+  
+  form.addEventListener("submit", function(event){
    
+    userKana = document.querySelector('input[name="answers"]:checked').value
+
     if (questionKana.sound === userKana){
       console.log("right answer")
       userScore++
@@ -102,9 +105,9 @@ function formQuestion(){
       hiragana.splice(hiragana.indexOf(questionKana), 1);  
     }
     event.preventDefault()
-    //reset()
-    //nextQuestion()
 
+    reset()
+  
 })
 
 }
@@ -117,4 +120,5 @@ function displayAnswers(shuffledAnswers){
 }
 
 formQuestion()
-  
+}
+startQuiz()
