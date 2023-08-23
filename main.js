@@ -1,6 +1,5 @@
 /*
 TO DO:
--Add start screen
 -Calculate score as total of ramining hiragana
 -Display result screen showing number corrent and reload button to start over
 */
