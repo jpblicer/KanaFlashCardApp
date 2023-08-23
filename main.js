@@ -29,8 +29,9 @@ const hiragana = [
   }
 ];
 
-
-
+let startButton = document.createElement("button");
+startButton.type = "button"
+const playField = document.getElementById("playField")
 const form = document.getElementById("form")
 const formButton = document.getElementById("formButton")
 
@@ -128,5 +129,31 @@ nextRound()
 
 }
 
-startApp()
 
+function hideQuiz(){
+  for (const child of document.querySelectorAll("ul"))(
+    child.setAttribute("hidden", true)
+  )
+}
+
+function showQuiz(){
+  for (const child of document.querySelectorAll("ul"))(
+    child.removeAttribute("hidden")
+  )
+  startButton.setAttribute("hidden", true)
+  startApp()
+}
+
+function startScreen(){
+  questionMoji.textContent="Select an Option"
+  hideQuiz()
+  
+  startButton.textContent = "Start Game"
+  
+  
+  
+  document.querySelector("fieldset").append(startButton)
+  startButton.addEventListener("click", showQuiz)
+}
+
+startScreen()
