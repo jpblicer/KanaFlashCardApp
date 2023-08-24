@@ -2,6 +2,9 @@
 TO DO:
 -Calculate score as total of ramining hiragana
 -Display result screen showing number corrent and reload button to start over
+
+create another array to pull the question moji from and then have the other answeres pulled from original array
+  this will avoid having fewer random answers as quiz progresses
 */
 
 
@@ -46,16 +49,20 @@ const answerC = document.getElementById("answerCLabel");
 const answerD = document.getElementById("answerDLabel");
 
 
-
+let questionHiragana =[]
 
 let userScore = 0
+
+hiragana.forEach(element => {
+  questionHiragana.push(element)
+});
 
 
 function startApp(){
 
 function startQuiz(){
   const possibleAnswers = [];
-  let questionKana = hiragana[Math.floor(Math.random()*hiragana.length)];
+  let questionKana = questionHiragana[Math.floor(Math.random()*questionHiragana.length)];
   answerB.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;
   answerC.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;  
   answerD.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;
@@ -100,12 +107,12 @@ function displayQuestion(possibleAnswers, questionKana){
       console.log("right answer")
       userScore++
       console.log(userScore)
-      hiragana.splice(hiragana.indexOf(questionKana), 1); 
+      questionHiragana.splice(questionHiragana.indexOf(questionKana), 1); 
     }else{
       console.log("wrong answer")
       userScore--
       console.log(userScore)
-      hiragana.splice(hiragana.indexOf(questionKana), 1);  
+      questionHiragana.splice(questionHiragana.indexOf(questionKana), 1);  
     }
   event.preventDefault()
   nextRound()
@@ -118,7 +125,7 @@ function displayQuestion(possibleAnswers, questionKana){
 
 
 function nextRound(){
-  if(hiragana.length <= 0){
+  if(questionHiragana.length <= 0){
     console.log("game over you scored " + userScore)
   }else{
   startQuiz()
