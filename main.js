@@ -60,6 +60,9 @@ katakanaStartButton.type = "button"
 let allKanaStartButton = document.createElement("button");
 allKanaStartButton.type = "button"
 
+let resetButton = document.createElement("button");
+resetButton.type = "button"
+resetButton.textContent = "Reset"
 
 const playField = document.getElementById("playField")
 const form = document.getElementById("form")
@@ -251,6 +254,14 @@ function quizResult(){
   userScoreCounter.textContent= "You scored " + userScore + " correct out of " + totalScore;
   questionMoji.textContent="Result"
   document.querySelector("fieldset").append(userScoreCounter)
+
+  document.querySelector("fieldset").append(resetButton)
+  resetButton.addEventListener("click", reset)
 }
+
+function reset(){
+  location.reload()
+}
+
 
 startScreen()
