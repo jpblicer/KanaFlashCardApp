@@ -1,3 +1,7 @@
+/*
+Put real time feedback in the header to make quiz more responsive
+*/
+
 const hiragana = [
   {
     moji: "あ",
@@ -155,6 +159,7 @@ function displayQuestion(possibleAnswers, questionKana){
       console.log(userScore)
       selectedKana.splice(selectedKana.indexOf(questionKana), 1);  
     }
+  
   event.preventDefault()
   nextRound()
   removeSubmit()
