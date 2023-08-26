@@ -95,6 +95,16 @@ function startQuiz(){
   answerB.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;
   answerC.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;  
   answerD.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;
+
+  while(answerB.sound === answerC.sound || answerB.sound === answerD.sound || answerB.sound === questionKana.sound){
+    answerB.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;
+  }
+  while(answerC.sound === answerB.sound || answerC.sound === answerD.sound || answerC.sound === questionKana.sound){
+    answerC.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;  
+  }
+  while(answerD.sound === answerB.sound || answerD.sound === answerC.sound || answerD.sound === questionKana.sound){
+    answerD.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;
+  }
   possibleAnswers.push(questionKana.sound, answerB.sound, answerC.sound, answerD.sound)
 
   shuffleAnswers(possibleAnswers, questionKana)
