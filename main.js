@@ -78,24 +78,23 @@ const answerD = document.getElementById("answerDLabel");
 
 
 let userScore = 0
-let totalScore = hiragana.length
 
+//change to roundKana after selected
 
+const roundKana = [];
 
-let questionHiragana = []
-hiragana.forEach(element => {
-  questionHiragana.push(element)
-});
+const selectedKana = []
+
 
 
 function startApp(){
 
 function startQuiz(){
   const possibleAnswers = [];
-  let questionKana = questionHiragana[Math.floor(Math.random()*questionHiragana.length)];
-  answerB.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;
-  answerC.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;  
-  answerD.sound = hiragana[Math.floor(Math.random()*hiragana.length)].sound;
+  let questionKana = selectedKana[Math.floor(Math.random()*selectedKana.length)];
+  answerB.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;
+  answerC.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;  
+  answerD.sound = roundKana[Math.floor(Math.random()*roundKana.length)].sound;
   possibleAnswers.push(questionKana.sound, answerB.sound, answerC.sound, answerD.sound)
 
   shuffleAnswers(possibleAnswers, questionKana)
@@ -137,11 +136,11 @@ function displayQuestion(possibleAnswers, questionKana){
       console.log("right answer")
       userScore++
       console.log(userScore)
-      questionHiragana.splice(questionHiragana.indexOf(questionKana), 1); 
+      selectedKana.splice(selectedKana.indexOf(questionKana), 1); 
     }else{
       console.log("wrong answer")
       console.log(userScore)
-      questionHiragana.splice(questionHiragana.indexOf(questionKana), 1);  
+      selectedKana.splice(selectedKana.indexOf(questionKana), 1);  
     }
   event.preventDefault()
   nextRound()
@@ -154,7 +153,7 @@ function displayQuestion(possibleAnswers, questionKana){
 
 
 function nextRound(){
-  if(questionHiragana.length <= 0){
+  if(selectedKana.length <= 0){
     console.log("game over you scored " + userScore)
     quizResult()
   }else{
@@ -197,20 +196,50 @@ function startScreen(){
   document.querySelector("fieldset").append(katakanaStartButton)
   document.querySelector("fieldset").append(allKanaStartButton)
   
-  hiraganaStartButton.addEventListener("click", showQuiz)
-  katakanaStartButton.addEventListener("click", showQuiz)
-  allKanaStartButton.addEventListener("click", showQuiz)
+  hiraganaStartButton.addEventListener("click", loadHiragana)
+  katakanaStartButton.addEventListener("click", loadKatakana)
+  allKanaStartButton.addEventListener("click", loadAllKana)
 }
 
+function loadHiragana(){
+  hiragana.forEach(element => {
+    roundKana.push(element)
+  });
+  roundKana.forEach(element => {
+    selectedKana.push(element)
+  });
+  showQuiz()
+}
+function loadKatakana(){
+  katakana.forEach(element => {
+    roundKana.push(element)
+  });
+  roundKana.forEach(element => {
+    selectedKana.push(element)
+  });
+  showQuiz()
+}
+function loadAllKana(){
+  hiragana.forEach(element => {
+    roundKana.push(element)
+  });
+  katakana.forEach(element => {
+    roundKana.push(element)
+  });
+  roundKana.forEach(element => {
+    selectedKana.push(element)
+  });
+  showQuiz()
+}
 
 
 
 function quizResult(){
   hideQuiz()
+  let totalScore = roundKana.length
   let userScoreCounter = document.createElement("p")
   userScoreCounter.textContent= "You scored " + userScore + " correct out of " + totalScore;
   questionMoji.textContent="Result"
-
   document.querySelector("fieldset").append(userScoreCounter)
 }
 
