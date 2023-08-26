@@ -21,8 +21,46 @@ const hiragana = [
   }
 ];
 
-let startButton = document.createElement("button");
-startButton.type = "button"
+
+const katakana = [
+  {
+    moji: "ア",
+    sound: "a"
+  },
+  {
+    moji: "イ",
+    sound: "i"
+  },
+  {
+    moji: "ウ",
+    sound: "u"
+  },
+  {
+    moji: "エ",
+    sound: "e"
+  },
+  {
+    moji: "オ",
+    sound: "o"
+  }
+];
+
+
+
+
+
+
+
+let hiraganaStartButton = document.createElement("button");
+hiraganaStartButton.type = "button"
+
+let katakanaStartButton = document.createElement("button");
+katakanaStartButton.type = "button"
+
+let allKanaStartButton = document.createElement("button");
+allKanaStartButton.type = "button"
+
+
 const playField = document.getElementById("playField")
 const form = document.getElementById("form")
 const formButton = document.getElementById("formButton")
@@ -44,7 +82,7 @@ let totalScore = hiragana.length
 
 
 
-let questionHiragana =[]
+let questionHiragana = []
 hiragana.forEach(element => {
   questionHiragana.push(element)
 });
@@ -138,21 +176,34 @@ function showQuiz(){
   for (const child of document.querySelectorAll("ul"))(
     child.removeAttribute("hidden")
   )
-  startButton.setAttribute("hidden", true)
+  hiraganaStartButton.setAttribute("hidden", true)
+  katakanaStartButton.setAttribute("hidden", true)
+  allKanaStartButton.setAttribute("hidden", true)
   startApp()
 }
+
+
+
 
 function startScreen(){
   questionMoji.textContent="Select an Option"
   hideQuiz()
   
-  startButton.textContent = "Start Game"
+  hiraganaStartButton.textContent = "Hiragana"
+  katakanaStartButton.textContent = "Katakana"
+  allKanaStartButton.textContent = "All Kana"
   
+  document.querySelector("fieldset").append(hiraganaStartButton)
+  document.querySelector("fieldset").append(katakanaStartButton)
+  document.querySelector("fieldset").append(allKanaStartButton)
   
-  
-  document.querySelector("fieldset").append(startButton)
-  startButton.addEventListener("click", showQuiz)
+  hiraganaStartButton.addEventListener("click", showQuiz)
+  katakanaStartButton.addEventListener("click", showQuiz)
+  allKanaStartButton.addEventListener("click", showQuiz)
 }
+
+
+
 
 function quizResult(){
   hideQuiz()
