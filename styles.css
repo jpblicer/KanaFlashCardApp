@@ -11,8 +11,8 @@ header{
 
 header p{
     display:flex;
-    justify-content: flex-end;
-    margin-right: 15%;
+    justify-content: flex-start;
+    margin-left: 5%;
 }
 
 main{
@@ -44,3 +44,9 @@ button{
     margin-left: 0.5em;
     margin-top: 1em;
 }
+
+input[type='radio'] {
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+  }
