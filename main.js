@@ -71,7 +71,8 @@ resetButton.textContent = "Reset"
 const playField = document.getElementById("playField")
 const form = document.getElementById("form")
 const formButton = document.getElementById("formButton")
-
+const header = document.querySelector("header")
+const stats = document.getElementById("stats")
 const questionMoji = document.getElementById("questionMoji");
 const answers = document.getElementsByName("answers");
 const answerAInput = document.getElementById("answerA")
@@ -152,11 +153,13 @@ function displayQuestion(possibleAnswers, questionKana){
     if(questionKana.sound === userKana){
       console.log("right answer")
       userScore++
+      correctHeader()
       console.log(userScore)
       selectedKana.splice(selectedKana.indexOf(questionKana), 1); 
     }else{
       console.log("wrong answer")
       console.log(userScore)
+      wrongHeader()
       selectedKana.splice(selectedKana.indexOf(questionKana), 1);  
     }
   
@@ -249,6 +252,18 @@ function loadAllKana(){
   });
   showQuiz()
 }
+
+
+function correctHeader(){
+  stats.textContent = "Correct Answer, You have " + (selectedKana.length - 1) + " questions remaining"
+  header.style.backgroundColor = "green";
+}
+
+function wrongHeader(){
+  stats.textContent = "Wrong Answer, You have " + (selectedKana.length - 1) + " questions remaining"
+  header.style.backgroundColor = "red";
+}
+
 
 
 

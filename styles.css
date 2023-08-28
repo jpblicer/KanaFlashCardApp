@@ -9,6 +9,12 @@ header{
     margin-bottom: 25px;
 }
 
+header p{
+    display:flex;
+    justify-content: flex-end;
+    margin-right: 15%;
+}
+
 main{
     display:flex;
     justify-content: center;
