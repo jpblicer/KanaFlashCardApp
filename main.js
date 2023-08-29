@@ -1,7 +1,3 @@
-/*
-Put real time feedback in the header to make quiz more responsive
-*/
-
 const hiragana = [
   {
     moji: "あ",
@@ -269,6 +265,9 @@ function wrongHeader(){
 
 function quizResult(){
   hideQuiz()
+  header.style.backgroundColor = "aqua";
+  stats.textContent = "おわりました"
+
   let totalScore = roundKana.length
   let userScoreCounter = document.createElement("p")
   userScoreCounter.textContent= "You scored " + userScore + " correct out of " + totalScore;
