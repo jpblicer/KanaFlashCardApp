@@ -18,6 +18,170 @@ const hiragana = [
   {
     moji: "お",
     sound: "o"
+  },
+  {
+    moji: "か",
+    sound: "ka"
+  },
+  {
+    moji: "き",
+    sound: "ki"
+  },
+  {
+    moji: "く",
+    sound: "ku"
+  },
+  {
+    moji: "け",
+    sound: "ke"
+  },
+  {
+    moji: "こ",
+    sound: "ko"
+  },
+  {
+    moji: "さ",
+    sound: "sa"
+  },
+  {
+    moji: "し",
+    sound: "shi"
+  },
+  {
+    moji: "す",
+    sound: "su"
+  },
+  {
+    moji: "せ",
+    sound: "se"
+  },
+  {
+    moji: "そ",
+    sound: "so"
+  },
+  {
+    moji: "た",
+    sound: "ta"
+  },
+  {
+    moji: "ち",
+    sound: "chi"
+  },
+  {
+    moji: "つ",
+    sound: "tsu"
+  },
+  {
+    moji: "て",
+    sound: "te"
+  },
+  {
+    moji: "と",
+    sound: "to"
+  },
+  {
+    moji: "な",
+    sound: "na"
+  },
+  {
+    moji: "に",
+    sound: "ni"
+  },
+  {
+    moji: "ぬ",
+    sound: "nu"
+  },
+  {
+    moji: "ね",
+    sound: "ne"
+  },
+  {
+    moji: "の",
+    sound: "no"
+  },
+  {
+    moji: "は",
+    sound: "ha"
+  },
+  {
+    moji: "ひ",
+    sound: "hi"
+  },
+  {
+    moji: "ふ",
+    sound: "fu"
+  },
+  {
+    moji: "へ",
+    sound: "he"
+  },
+  {
+    moji: "ほ",
+    sound: "ho"
+  },
+  {
+    moji: "ま",
+    sound: "ma"
+  },
+  {
+    moji: "み",
+    sound: "mi"
+  },
+  {
+    moji: "む",
+    sound: "mu"
+  },
+  {
+    moji: "め",
+    sound: "me"
+  },
+  {
+    moji: "も",
+    sound: "mo"
+  },
+  {
+    moji: "や",
+    sound: "ya"
+  },
+  {
+    moji: "ゆ",
+    sound: "yu"
+  },
+  {
+    moji: "よ",
+    sound: "yo"
+  },
+  {
+    moji: "ら",
+    sound: "ra"
+  },
+  {
+    moji: "り",
+    sound: "ri"
+  },
+  {
+    moji: "る",
+    sound: "ru"
+  },
+  {
+    moji: "れ",
+    sound: "re"
+  },
+  {
+    moji: "ろ",
+    sound: "ro"
+  },
+  {
+    moji: "わ",
+    sound: "wa"
+  },
+  {
+    moji: "ん",
+    sound: "n"
+  },
+  {
+    moji: "を",
+    sound: "wo"
   }
 ];
 
@@ -42,6 +206,170 @@ const katakana = [
   {
     moji: "オ",
     sound: "o"
+  },
+  {
+    moji: "カ",
+    sound: "ka"
+  },
+  {
+    moji: "キ",
+    sound: "ki"
+  },
+  {
+    moji: "ク",
+    sound: "ku"
+  },
+  {
+    moji: "ケ",
+    sound: "ke"
+  },
+  {
+    moji: "コ",
+    sound: "ko"
+  },
+  {
+    moji: "サ",
+    sound: "sa"
+  },
+  {
+    moji: "シ",
+    sound: "shi"
+  },
+  {
+    moji: "ス",
+    sound: "su"
+  },
+  {
+    moji: "セ",
+    sound: "se"
+  },
+  {
+    moji: "ソ",
+    sound: "so"
+  },
+  {
+    moji: "タ",
+    sound: "ta"
+  },
+  {
+    moji: "チ",
+    sound: "chi"
+  },
+  {
+    moji: "ツ",
+    sound: "tsu"
+  },
+  {
+    moji: "テ",
+    sound: "te"
+  },
+  {
+    moji: "ト",
+    sound: "to"
+  },
+  {
+    moji: "ナ",
+    sound: "na"
+  },
+  {
+    moji: "ニ",
+    sound: "ni"
+  },
+  {
+    moji: "ヌ",
+    sound: "nu"
+  },
+  {
+    moji: "ネ",
+    sound: "ne"
+  },
+  {
+    moji: "ノ",
+    sound: "no"
+  },
+  {
+    moji: "ハ",
+    sound: "ha"
+  },
+  {
+    moji: "ヒ",
+    sound: "hi"
+  },
+  {
+    moji: "フ",
+    sound: "fu"
+  },
+  {
+    moji: "へ",
+    sound: "he"
+  },
+  {
+    moji: "ホ",
+    sound: "ho"
+  },
+  {
+    moji: "マ",
+    sound: "ma"
+  },
+  {
+    moji: "ミ",
+    sound: "mi"
+  },
+  {
+    moji: "ム",
+    sound: "mu"
+  },
+  {
+    moji: "メ",
+    sound: "me"
+  },
+  {
+    moji: "モ",
+    sound: "mo"
+  },
+  {
+    moji: "ヤ",
+    sound: "ya"
+  },
+  {
+    moji: "ユ",
+    sound: "yu"
+  },
+  {
+    moji: "ヨ",
+    sound: "yo"
+  },
+  {
+    moji: "ラ",
+    sound: "ra"
+  },
+  {
+    moji: "リ",
+    sound: "ri"
+  },
+  {
+    moji: "ル",
+    sound: "ru"
+  },
+  {
+    moji: "レ",
+    sound: "re"
+  },
+  {
+    moji: "ロ",
+    sound: "ro"
+  },
+  {
+    moji: "ワ",
+    sound: "wa"
+  },
+  {
+    moji: "ン",
+    sound: "n"
+  },
+  {
+    moji: "ヲ",
+    sound: "wo"
   }
 ];
 
@@ -83,7 +411,6 @@ const answerD = document.getElementById("answerDLabel");
 
 let userScore = 0
 
-//change to roundKana after selected
 
 const roundKana = [];
 
